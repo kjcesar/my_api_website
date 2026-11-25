@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h1>Pokedex</h1>
+
+  <!-- Search form -->
+  <form method="POST">
+    <input type="text" name="pokemon_name" placeholder="Enter Pokémon name" class="form-control mb-2" required>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+  <!-- Error -->
+  {% if error %}
+    <div class="alert alert-danger mt-2">{{ error }}</div>
+  {% endif %}
+
+  <!-- Pokémon info -->
+  {% if pokemon %}
+    <div class="card mt-3" style="width: 18rem;">
+      <img src="{{ pokemon.sprites.front_default }}" class="card-img-top" alt="{{ pokemon.name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ pokemon.name|capitalize }}</h5>
+        <p class="card-text">Height: {{ pokemon.height }}</p>
+        <p class="card-text">Weight: {{ pokemon.weight }}</p>
+        <p class="card-text">Types: 
+          {% for t in pokemon.types %}
+            {{ t.type.name }}{% if not loop.last %}, {% endif %}
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
+

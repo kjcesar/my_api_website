@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card nasa-card shadow-lg rounded-4 mx-auto">
+  <div class="card-body p-4">
+
+    <p class="text-muted mb-1">{{ apod.date }}</p>
+    <h1 class="h3">{{ apod.title }}</h1>
+
+    <figure class="text-center mb-4">
+      {% if apod.media_type == "image" %}
+        <img src="{{ apod.hdurl or apod.url }}"
+             alt="{{ apod.alt or apod.title }}"
+             class="img-fluid rounded shadow d-block mx-auto">
+      {% else %}
+        <img src="{{ apod.hdurl }}"
+             alt="{{ apod.alt or apod.title }}"
+             class="img-fluid rounded shadow d-block mx-auto">
+        <figcaption class="mt-3">
+          <a class="btn btn-outline-primary" href="{{ apod.url }}" target="_blank" rel="noopener">
+            Ver video →
+          </a>
+        </figcaption>
+      {% endif %}
+    </figure>
+
+    <p class="lead nasa-explanation">{{ apod.explanation | striptags }}</p>
+    <p class="small text-muted mb-0">{{ apod.credit | striptags }}</p>
+
+  </div>
+</div>
+{% endblock %}

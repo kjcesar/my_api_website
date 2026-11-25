@@ -1,0 +1,15 @@
+[project]
+name = "api-website"
+version = "0.1.0"
+description = "A little website that use two endpoint apis in a flask website"
+authors = [
+    {name = "Julio Cesar",email = "kaitocesar@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "flask (>=3.1.2,<4.0.0)",
+    "requests (>=2.32.5,<3.0.0)",
+    "dotenv (>=0.9.9,<0.10.0)"
+]
+

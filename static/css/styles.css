@@ -1,0 +1,9 @@
+.nasa-card img {
+  max-height: 520px;
+  object-fit: contain;
+  background: #000000;
+}
+
+.nasa-explanation {
+  line-height: 1.7;
+}
