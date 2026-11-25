@@ -1,5 +1,4 @@
 import requests
-from dotenv import load_dotenv
 from flask import Flask, render_template, request
 
 from utils.helpers import get_pokemon
@@ -20,7 +19,6 @@ def index():
 
 @app.route("/nasa_apod")
 def example():
-    load_dotenv()
     # api_key = os.getenv("NASA_KEY") legacy
     # start_date = "2025-10-01"  # YYYY-MM-DD
     # end_date = datetime.today().date()
